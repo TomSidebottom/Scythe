@@ -1,0 +1,74 @@
+﻿<RibbonWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		x:Class="Scythe.WPF.MainWindow"
+        Title="Scythe Explorer" Height="350" Width="525">
+	<Grid x:Name="layoutRoot">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="140" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Ribbon x:Name="RibbonWin" SelectedIndex="0" Grid.ColumnSpan="2" Grid.Row="0">
+			<Ribbon.HelpPaneContent>
+				<RibbonButton SmallImageSource="Images\help.png" />
+			</Ribbon.HelpPaneContent>
+			<Ribbon.QuickAccessToolBar>
+				<RibbonQuickAccessToolBar>
+					<RibbonButton x:Name="Save" SmallImageSource="Images\save.png">
+					</RibbonButton>
+					<RibbonSplitButton x:Name="Undo" SmallImageSource="Images\undo.png">
+						<RibbonSplitMenuItem Header="Undo 1" />
+						<RibbonSplitMenuItem Header="Undo 2" />
+						<RibbonSplitMenuItem Header="Undo 3" />
+					</RibbonSplitButton>
+					<RibbonSplitButton x:Name="Redo" SmallImageSource="Images\redo.png">
+						<RibbonSplitMenuItem Header="Redo 1" />
+						<RibbonSplitMenuItem Header="Redo 2" />
+					</RibbonSplitButton>
+				</RibbonQuickAccessToolBar>
+			</Ribbon.QuickAccessToolBar>
+			<Ribbon.ApplicationMenu>
+				<RibbonApplicationMenu KeyTip="F">
+					<RibbonApplicationMenuItem Header="Options" ImageSource="Images\options.png" />
+					<RibbonApplicationMenuItem Header="Exit" ImageSource="Images\quit.png" />
+				</RibbonApplicationMenu>
+			</Ribbon.ApplicationMenu>
+			<RibbonTab Header="Home" KeyTip="H">
+				<RibbonGroup x:Name="ClipboardGroup" Header="Home">
+					<RibbonMenuButton LargeImageSource="Images\paste.png" Label="Paste" KeyTip="V">
+						<RibbonMenuItem ImageSource="Images\paste.png" Header="Keep Text Only" KeyTip="T" />
+						<RibbonMenuItem ImageSource="Images\paste.png" Header="Paste Special..." KeyTip="S" />
+					</RibbonMenuButton>
+					<RibbonButton SmallImageSource="Images\cut.png" Label="Cut" KeyTip="X" />
+					<RibbonButton SmallImageSource="Images\copy.png" Label="Copy" KeyTip="C" />
+					<RibbonButton SmallImageSource="Images\format_painter.png" Label="Format Painter" KeyTip="FP" Click="FormatPainterClicked" />
+				</RibbonGroup>
+			</RibbonTab>
+			<RibbonTab Header="Insert" KeyTip="I">
+				<RibbonGroup x:Name="TestGroup" Header="Test">
+					<RibbonCheckBox x:Name="testCheckbox" Label="Turn me on" />
+					<RibbonComboBox x:Name="testCombobox" >
+						<MenuItem Header="First"/>
+						<MenuItem Header="Second"/>
+						<MenuItem Header="Third"/>
+					</RibbonComboBox>
+					<RibbonTextBox x:Name="testTextBox" Label="Enter something"></RibbonTextBox>
+				</RibbonGroup>
+			</RibbonTab>
+			<RibbonTab Header="Layout" KeyTip="L">
+				
+			</RibbonTab>
+		</Ribbon>
+		<TreeView Grid.Row="1" Grid.Column="0">
+		</TreeView>
+		<DataGrid Grid.Row="1" Grid.Column="1">
+				
+		</DataGrid>
+		<GridSplitter ResizeDirection="Columns" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" HorizontalAlignment="Left"
+					  VerticalAlignment="Stretch" Background="LightGray" ShowsPreview="True" Width="3"/>
+	</Grid>
+</RibbonWindow>
